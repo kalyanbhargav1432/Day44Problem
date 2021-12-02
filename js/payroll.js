@@ -76,13 +76,25 @@ window.addEventListener('DOMContentLoaded',(event) => {
             output.textContent = salary.value;
         });
 });
-//** UC3 **//
+//** UC3 , Uc4 **//
 const save = () => {
     try{
         let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     }catch(e){
         return;
     }
+}
+
+function createAndUpdateStorage(employeePayrollData){
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if(employeePayrollList != undefined){
+        employeePayrollList.push(EmployeePayrollData);
+    }else{
+        employeePayrollList = [employeePayrollData]
+    }
+    alert(employeePayrollList.toString());
+    localStorage.setItem("EmployeePayrollList" , JSON.stringify(employeePayrollList))
 }
 
 const createEmployeePayroll = () => {
@@ -124,3 +136,4 @@ const getInputElementValue = (id) =>{
     let value = document.getElementById(id).value;
     return value;
 }
+//** UC4 **//
