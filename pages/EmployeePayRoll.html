@@ -22,12 +22,13 @@
         </div>
     </header>
     <!-- * Uc 2 * -->
-    <div class="form-content">
-        <form class="form" action="#" onsubmit="sava(event);return false">
+    <div id = "formId" class="form-content">
+        <form class="form" action="#" onreset="resetForm()" onsubmit = "save()">
             <div class="form-head"> Employee Payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
+                <error-output class = "text-error" for = "text"></error-output>
             </div>
             <!-- * Uc 3 * -->
             <div class="row-content">
@@ -162,14 +163,14 @@
         </form>
         <!-- * Uc 8 * -->
     </div>
-    <script>
+    <!-- <script>
         const salary = document.querySelector("#salary");
         const output = document.querySelector("#salary-output");
         output.textContent = salary.value;
         salary.addEventListener('input', function () {
             output.textContent = salary.value;
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
